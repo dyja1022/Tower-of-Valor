@@ -41,7 +41,7 @@ func _physics_process(delta):
 	if velocity.y < 0 and Input.is_action_just_released("jump"):
 		velocity.y = 0
 	
-	velocity = move_and_slide_with_snap(velocity, Vector2.UP, Vector2(0,-10))
+	velocity = move_and_slide(velocity, Vector2.UP)
 		
 func take_damage(damage : int, push_dir : Vector2 = Vector2.ZERO, push_force : float = 100):
 	if can_take_dmg:
