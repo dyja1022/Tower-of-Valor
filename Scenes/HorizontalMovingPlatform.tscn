@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Textures/moving_platform.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/HorizontalMovingPlatform.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4, 0.860417 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 4.53019, 1.39373 )
+
+[node name="HorizontalMovingPlatform" type="KinematicBody2D" groups=[
+"moving_plat",
+]]
+collision_layer = 16
+collision_mask = 2147483649
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 4.01314, 1.02628 )
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="Area2D" type="Area2D" parent="."]
+space_override = 1
+gravity = 0.0
+collision_layer = 16
+collision_mask = 2147483652
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 4, 1 )
+shape = SubResource( 2 )
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

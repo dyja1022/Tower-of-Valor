@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Textures/PlatformTiles.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/DissapearingPlatform.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4.0086, 2.00436 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 3.99311, 0.323608 )
+
+[node name="HalfDissapearing" type="StaticBody2D"]
+position = Vector2( 16, 16 )
+collision_layer = 4
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 4, 2 )
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 4, 0 )
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 104, 0, 8, 8 )
+
+[node name="FadeOut" type="Timer" parent="."]
+
+[node name="FadeIn" type="Timer" parent="."]
+wait_time = 2.0
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="FadeOut" to="." method="_on_FadeOut_timeout"]
+[connection signal="timeout" from="FadeIn" to="." method="_on_FadeIn_timeout"]

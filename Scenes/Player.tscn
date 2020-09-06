@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Textures/player.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1.41752, 2.83323 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 1.51415, 0.297517 )
+
+[node name="Player" type="KinematicBody2D" groups=[
+"player",
+]]
+collision_layer = 9
+collision_mask = 0
+motion/sync_to_physics = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+speed = 40
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 4.48075, 4.89101 )
+shape = SubResource( 1 )
+
+[node name="Invulnerable" type="Timer" parent="."]
+
+[node name="FeetArea" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FeetArea"]
+position = Vector2( 4.49608, 7.74374 )
+shape = SubResource( 2 )
+one_way_collision = true
+[connection signal="timeout" from="Invulnerable" to="." method="_on_Invulnerable_timeout"]
+[connection signal="body_entered" from="FeetArea" to="." method="_on_FeetArea_body_entered"]
+[connection signal="body_exited" from="FeetArea" to="." method="_on_FeetArea_body_exited"]

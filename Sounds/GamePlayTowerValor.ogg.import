@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/GamePlayTowerValor.ogg-6c47c9f4fef046efc0c771089b32bdab.oggstr"
+
+[deps]
+
+source_file="res://Sounds/GamePlayTowerValor.ogg"
+dest_files=[ "res://.import/GamePlayTowerValor.ogg-6c47c9f4fef046efc0c771089b32bdab.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
