@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/ThrowableSpear.gd" type="Script" id=1]
+[ext_resource path="res://Textures/Throwable_Spear.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 1.58007
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 4.67761, 0.45513 )
+
+[node name="ThrowableSpear" type="StaticBody2D"]
+collision_layer = 32
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="BladeArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BladeArea"]
+position = Vector2( -5.2556, -0.183946 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1.13776, -0.451613 )
+shape = SubResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 0, -0.419845 )
+scale = Vector2( 1, 0.219973 )
+rect = Rect2( -8, -10, 16, 20 )
+
+[node name="StickTimer" type="Timer" parent="."]
+wait_time = 5.0
+[connection signal="body_entered" from="BladeArea" to="." method="_on_BladeArea_body_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="timeout" from="StickTimer" to="." method="_on_StickTimer_timeout"]

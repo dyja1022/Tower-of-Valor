@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://PlatformTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://Scenes/HorizontalMovingPlatform.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/VerticalMovingPlatform.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scripts/Camera.gd" type="Script" id=12]
+[ext_resource path="res://Scenes/Gargoyle.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/FallenGargoyle.tscn" type="PackedScene" id=14]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends TileMap
@@ -42,13 +44,40 @@ cell_quadrant_size = 8
 collision_layer = 4
 collision_mask = 11
 format = 1
-tile_data = PoolIntArray( 0, 2, 0, 31, 2, 0, 65536, 2, 0, 65567, 4, 0, 131072, 2, 0, 131091, 5, 0, 131092, 2, 0, 131093, 3, 0, 131103, 2, 0, 196608, 3, 0, 196628, 3, 0, 196629, 3, 0, 196630, 3, 0, 196639, 4, 0, 262144, 2, 0, 262175, 4, 0, 327680, 2, 0, 327681, 1, 0, 327711, 4, 0, 393216, 2, 0, 393217, 4, 0, 393218, 2, 0, 393247, 2, 0, 458752, 2, 0, 458753, 2, 0, 458754, 5, 0, 458755, 5, 0, 458772, 11, 0, 458776, 11, 0, 458777, 11, 0, 458778, 0, 0, 458779, 5, 0, 458780, 5, 0, 458781, 2, 0, 458782, 4, 0, 458783, 4, 0, 524288, 2, 0, 524289, 2, 0, 524290, 2, 0, 524291, 2, 0, 524292, 2, 0, 524293, 2, 0, 524301, 12, 0, 524302, 12, 0, 524305, 4, 0, 524317, 4, 0, 524318, 2, 0, 524319, 2, 0, 589824, 2, 0, 589831, 12, 0, 589832, 12, 0, 589835, 4, 0, 589841, 4, 0, 589842, 4, 0, 589855, 2, 0, 655360, 0, 0, 655370, 0, 0, 655371, 4, 0, 655372, 4, 0, 655377, 4, 0, 655378, 4, 0, 655379, 4, 0, 655381, 0, 0, 655391, 4, 0, 720896, 0, 0, 720897, 8, 0, 720898, 6, 0, 720899, 1, 0, 720900, 5, 0, 720901, 3, 0, 720904, 1, 0, 720905, 3, 0, 720906, 3, 0, 720907, 5, 0, 720908, 4, 0, 720909, 4, 0, 720910, 6, 0, 720911, 7, 0, 720912, 7, 0, 720913, 4, 0, 720914, 4, 0, 720915, 4, 0, 720916, 4, 0, 720917, 1, 0, 720918, 5, 0, 720919, 3, 0, 720922, 5, 0, 720923, 3, 0, 720924, 3, 0, 720927, 2, 0, 786432, 2, 0, 786462, 9, 0, 786463, 2, 0, 851968, 2, 0, 851973, 8, 0, 851974, 6, 0, 851975, 6, 0, 851980, 8, 0, 851981, 7, 0, 851982, 7, 0, 851983, 6, 0, 851984, 6, 0, 851985, 6, 0, 851992, 6, 0, 851993, 6, 0, 851999, 4, 0, 917504, 2, 0, 917505, 0, 0, 917533, 0, 0, 917535, 2, 0, 983040, 2, 0, 983041, 3, 0, 983042, 3, 0, 983043, 3, 0, 983044, 3, 0, 983045, 3, 0, 983046, 3, 0, 983047, 2, 0, 983048, 5, 0, 983049, 3, 0, 983050, 2, 0, 983051, 3, 0, 983052, 3, 0, 983053, 5, 0, 983054, 5, 0, 983055, 4, 0, 983056, 4, 0, 983057, 4, 0, 983058, 3, 0, 983059, 3, 0, 983060, 2, 0, 983061, 2, 0, 983062, 2, 0, 983063, 2, 0, 983064, 2, 0, 983065, 2, 0, 983066, 2, 0, 983067, 2, 0, 983068, 2, 0, 983069, 2, 0, 983070, 2, 0, 983071, 2, 0 )
+tile_data = PoolIntArray( -1048576, 4, 0, -1048561, 9, 0, -1048545, 4, 0, -983040, 4, 0, -983009, 3, 0, -917504, 3, 0, -917473, 3, 0, -851968, 3, 0, -851937, 3, 0, -786432, 3, 0, -786401, 3, 0, -720896, 3, 0, -720865, 3, 0, -655360, 3, 0, -655329, 3, 0, -589824, 3, 0, -589793, 3, 0, -524288, 3, 0, -524287, 3, 0, -524286, 3, 0, -524285, 7, 0, -524284, 7, 0, -524283, 3, 0, -524282, 3, 0, -524281, 3, 0, -524280, 3, 0, -524279, 3, 0, -524278, 3, 0, -524277, 2, 0, -524276, 3, 0, -524275, 10, 0, -524274, 10, 0, -524273, 9, 0, -524272, 10, 0, -524271, 10, 0, -524270, 10, 0, -524269, 3, 0, -524268, 3, 0, -524267, 3, 0, -524266, 3, 0, -524265, 3, 0, -524264, 3, 0, -524263, 3, 0, -524262, 3, 0, -524261, 7, 0, -524260, 7, 0, -524259, 3, 0, -524258, 3, 0, -524257, 3, 0, -458752, 3, 0, -458721, 3, 0, -393216, 3, 0, -393185, 3, 0, -327680, 3, 0, -327676, 12, 0, -327652, 10, 0, -327649, 3, 0, -262144, 3, 0, -262133, 12, 0, -262127, 12, 0, -262124, 10, 0, -262115, 12, 0, -262113, 3, 0, -196608, 3, 0, -196600, 10, 0, -196594, 12, 0, -196593, 10, 0, -196577, 3, 0, -131072, 3, 0, -131071, 3, 0, -131068, 10, 0, -131041, 3, 0, -65536, 3, 0, -65535, 3, 0, -65534, 3, 0, -65505, 3, 0, 0, 3, 0, 1, 3, 0, 5, 12, 0, 27, 12, 0, 28, 10, 0, 31, 2, 0, 65536, 2, 0, 65553, 12, 0, 65567, 4, 0, 131072, 2, 0, 131076, 12, 0, 131091, 5, 0, 131092, 2, 0, 131093, 3, 0, 131103, 2, 0, 196608, 3, 0, 196628, 3, 0, 196629, 3, 0, 196630, 3, 0, 196639, 4, 0, 262144, 2, 0, 262175, 4, 0, 327680, 2, 0, 327681, 1, 0, 327711, 4, 0, 393216, 2, 0, 393217, 4, 0, 393218, 2, 0, 393247, 2, 0, 458752, 2, 0, 458753, 2, 0, 458754, 5, 0, 458755, 5, 0, 458772, 11, 0, 458776, 11, 0, 458777, 11, 0, 458778, 0, 0, 458779, 5, 0, 458780, 5, 0, 458781, 2, 0, 458782, 4, 0, 458783, 4, 0, 524288, 2, 0, 524289, 2, 0, 524290, 2, 0, 524291, 2, 0, 524292, 2, 0, 524293, 2, 0, 524301, 12, 0, 524302, 12, 0, 524305, 4, 0, 524317, 4, 0, 524318, 2, 0, 524319, 2, 0, 589824, 2, 0, 589831, 12, 0, 589832, 12, 0, 589835, 4, 0, 589841, 4, 0, 589842, 4, 0, 589855, 2, 0, 655360, 0, 0, 655370, 0, 0, 655371, 4, 0, 655372, 4, 0, 655377, 4, 0, 655378, 4, 0, 655379, 4, 0, 655381, 0, 0, 655391, 4, 0, 720896, 0, 0, 720897, 8, 0, 720898, 6, 0, 720899, 1, 0, 720900, 5, 0, 720901, 3, 0, 720904, 1, 0, 720905, 3, 0, 720906, 3, 0, 720907, 5, 0, 720908, 4, 0, 720909, 4, 0, 720910, 6, 0, 720911, 7, 0, 720912, 7, 0, 720913, 4, 0, 720914, 4, 0, 720915, 4, 0, 720916, 4, 0, 720917, 1, 0, 720918, 5, 0, 720919, 3, 0, 720922, 5, 0, 720923, 3, 0, 720924, 3, 0, 720927, 2, 0, 786432, 2, 0, 786462, 9, 0, 786463, 2, 0, 851968, 2, 0, 851973, 8, 0, 851974, 6, 0, 851975, 6, 0, 851980, 8, 0, 851981, 7, 0, 851982, 7, 0, 851983, 6, 0, 851984, 6, 0, 851985, 6, 0, 851992, 6, 0, 851993, 6, 0, 851999, 4, 0, 917504, 2, 0, 917505, 0, 0, 917533, 0, 0, 917535, 2, 0, 983040, 2, 0, 983041, 3, 0, 983042, 3, 0, 983043, 3, 0, 983044, 3, 0, 983045, 3, 0, 983046, 3, 0, 983047, 2, 0, 983048, 5, 0, 983049, 3, 0, 983050, 2, 0, 983051, 3, 0, 983052, 3, 0, 983053, 5, 0, 983054, 5, 0, 983055, 4, 0, 983056, 4, 0, 983057, 4, 0, 983058, 3, 0, 983059, 3, 0, 983060, 2, 0, 983061, 2, 0, 983062, 2, 0, 983063, 2, 0, 983064, 2, 0, 983065, 2, 0, 983066, 2, 0, 983067, 2, 0, 983068, 2, 0, 983069, 2, 0, 983070, 2, 0, 983071, 2, 0 )
 script = SubResource( 1 )
 
 [node name="DissapearingPlatforms" type="Node2D" parent="PlatformTileMap"]
 
 [node name="HalfDissapearing" parent="PlatformTileMap/DissapearingPlatforms" instance=ExtResource( 7 )]
 position = Vector2( 48, 64 )
+
+[node name="HalfDissapearing25" parent="PlatformTileMap/DissapearingPlatforms" instance=ExtResource( 7 )]
+position = Vector2( 48, 64 )
+
+[node name="HalfDissapearing20" parent="PlatformTileMap/DissapearingPlatforms" instance=ExtResource( 7 )]
+position = Vector2( 64, -80 )
+
+[node name="HalfDissapearing21" parent="PlatformTileMap/DissapearingPlatforms" instance=ExtResource( 7 )]
+position = Vector2( 160, -96 )
+
+[node name="HalfDissapearing22" parent="PlatformTileMap/DissapearingPlatforms" instance=ExtResource( 7 )]
+position = Vector2( 8, -104 )
+
+[node name="HalfDissapearing23" parent="PlatformTileMap/DissapearingPlatforms" instance=ExtResource( 7 )]
+position = Vector2( 96, -112 )
+
+[node name="HalfDissapearing24" parent="PlatformTileMap/DissapearingPlatforms" instance=ExtResource( 7 )]
+position = Vector2( 224, -120 )
+
+[node name="HalfDissapearing18" parent="PlatformTileMap/DissapearingPlatforms" instance=ExtResource( 7 )]
+position = Vector2( 96, -48 )
+
+[node name="HalfDissapearing19" parent="PlatformTileMap/DissapearingPlatforms" instance=ExtResource( 7 )]
+position = Vector2( 128, -48 )
+
+[node name="HalfDissapearing38" parent="PlatformTileMap/DissapearingPlatforms" instance=ExtResource( 7 )]
+position = Vector2( 24, -48 )
 
 [node name="HalfDissapearing2" parent="PlatformTileMap/DissapearingPlatforms" instance=ExtResource( 7 )]
 position = Vector2( 120, 64 )
@@ -86,10 +115,78 @@ position = Vector2( 208, 40 )
 [node name="HalfDissapearing13" parent="PlatformTileMap/DissapearingPlatforms" instance=ExtResource( 7 )]
 position = Vector2( 184, 24 )
 
+[node name="HalfDissapearing14" parent="PlatformTileMap/DissapearingPlatforms" instance=ExtResource( 7 )]
+position = Vector2( 80, -32 )
+
+[node name="HalfDissapearing15" parent="PlatformTileMap/DissapearingPlatforms" instance=ExtResource( 7 )]
+position = Vector2( 144, -32 )
+
+[node name="HalfDissapearing16" parent="PlatformTileMap/DissapearingPlatforms" instance=ExtResource( 7 )]
+position = Vector2( 128, -8 )
+
+[node name="HalfDissapearing26" parent="PlatformTileMap/DissapearingPlatforms" instance=ExtResource( 7 )]
+position = Vector2( 40, -88 )
+
+[node name="HalfDissapearing27" parent="PlatformTileMap/DissapearingPlatforms" instance=ExtResource( 7 )]
+position = Vector2( 24, -96 )
+
+[node name="HalfDissapearing28" parent="PlatformTileMap/DissapearingPlatforms" instance=ExtResource( 7 )]
+position = Vector2( 208, -80 )
+
+[node name="HalfDissapearing29" parent="PlatformTileMap/DissapearingPlatforms" instance=ExtResource( 7 )]
+position = Vector2( 136, -88 )
+
+[node name="HalfDissapearing30" parent="PlatformTileMap/DissapearingPlatforms" instance=ExtResource( 7 )]
+position = Vector2( 200, -112 )
+
+[node name="HalfDissapearing31" parent="PlatformTileMap/DissapearingPlatforms" instance=ExtResource( 7 )]
+position = Vector2( 176, -128 )
+
+[node name="HalfDissapearing32" parent="PlatformTileMap/DissapearingPlatforms" instance=ExtResource( 7 )]
+position = Vector2( 32, -112 )
+
+[node name="HalfDissapearing33" parent="PlatformTileMap/DissapearingPlatforms" instance=ExtResource( 7 )]
+position = Vector2( 72, -128 )
+
+[node name="HalfDissapearing34" parent="PlatformTileMap/DissapearingPlatforms" instance=ExtResource( 7 )]
+position = Vector2( 144, -128 )
+
+[node name="HalfDissapearing35" parent="PlatformTileMap/DissapearingPlatforms" instance=ExtResource( 7 )]
+position = Vector2( 136, -112 )
+
+[node name="HalfDissapearing36" parent="PlatformTileMap/DissapearingPlatforms" instance=ExtResource( 7 )]
+position = Vector2( 112, -128 )
+
+[node name="HalfDissapearing37" parent="PlatformTileMap/DissapearingPlatforms" instance=ExtResource( 7 )]
+position = Vector2( 184, -88 )
+
+[node name="HalfDissapearing17" parent="PlatformTileMap/DissapearingPlatforms" instance=ExtResource( 7 )]
+position = Vector2( 24, -40 )
+
 [node name="HorizontalMovingPlatforms" type="Node2D" parent="PlatformTileMap"]
 
 [node name="HorizontalMovingPlatform" parent="PlatformTileMap/HorizontalMovingPlatforms" instance=ExtResource( 10 )]
 position = Vector2( 88, 24 )
+dir = Vector2( 1, 0 )
+
+[node name="HorizontalMovingPlatform2" parent="PlatformTileMap/HorizontalMovingPlatforms" instance=ExtResource( 10 )]
+position = Vector2( 24, -32 )
+dir = Vector2( 1, 0 )
+
+[node name="HorizontalMovingPlatform4" parent="PlatformTileMap/HorizontalMovingPlatforms" instance=ExtResource( 10 )]
+position = Vector2( 104, -48 )
+dir = Vector2( 1, 0 )
+
+[node name="HorizontalMovingPlatform5" parent="PlatformTileMap/HorizontalMovingPlatforms" instance=ExtResource( 10 )]
+position = Vector2( 184, -32 )
+dir = Vector2( 1, 0 )
+
+[node name="HorizontalMovingPlatform6" parent="PlatformTileMap/HorizontalMovingPlatforms" instance=ExtResource( 10 )]
+position = Vector2( 96, -16 )
+dir = Vector2( 1, 0 )
+
+[node name="HorizontalMovingPlatform3" parent="PlatformTileMap/HorizontalMovingPlatforms" instance=ExtResource( 10 )]
+position = Vector2( 200, -16 )
 dir = Vector2( 1, 0 )
 
 [node name="VerticalMovingPlatforms" type="Node2D" parent="PlatformTileMap"]
@@ -98,14 +195,30 @@ dir = Vector2( 1, 0 )
 position = Vector2( 16, 32 )
 dir = Vector2( 0, -1 )
 
+[node name="VerticalMovingPlatform2" parent="PlatformTileMap/VerticalMovingPlatforms" instance=ExtResource( 11 )]
+position = Vector2( 152, -16 )
+dir = Vector2( 0, -1 )
+time_to_switch = 2.0
+
+[node name="VerticalMovingPlatform3" parent="PlatformTileMap/VerticalMovingPlatforms" instance=ExtResource( 11 )]
+position = Vector2( 72, -8 )
+dir = Vector2( 0, -1 )
+time_to_switch = 2.0
+
+[node name="VerticalMovingPlatform4" parent="PlatformTileMap/VerticalMovingPlatforms" instance=ExtResource( 11 )]
+position = Vector2( 48, -24 )
+speed = 8
+dir = Vector2( 0, -1 )
+time_to_switch = 2.0
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 128, 56 )
 current = true
-zoom = Vector2( 0.25, 0.25 )
+zoom = Vector2( 0.3, 0.3 )
 script = ExtResource( 12 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 24, 112 )
+position = Vector2( 120, -136 )
 collision_mask = 2147483648
 motion/sync_to_physics = false
 
@@ -113,8 +226,52 @@ motion/sync_to_physics = false
 script = ExtResource( 3 )
 Bat = ExtResource( 6 )
 
-[node name="Position2D" type="Position2D" parent="EnemySpawner"]
-position = Vector2( 128, 88 )
+[node name="Bats" type="Node2D" parent="EnemySpawner"]
+
+[node name="Bat5" parent="EnemySpawner/Bats" instance=ExtResource( 6 )]
+position = Vector2( 176, 72 )
+
+[node name="Bat6" parent="EnemySpawner/Bats" instance=ExtResource( 6 )]
+position = Vector2( 48, 0 )
+
+[node name="Bat7" parent="EnemySpawner/Bats" instance=ExtResource( 6 )]
+position = Vector2( 112, 8 )
+
+[node name="Bat8" parent="EnemySpawner/Bats" instance=ExtResource( 6 )]
+position = Vector2( 120, 32 )
+
+[node name="Bat9" parent="EnemySpawner/Bats" instance=ExtResource( 6 )]
+position = Vector2( 168, -40 )
+
+[node name="Bat10" parent="EnemySpawner/Bats" instance=ExtResource( 6 )]
+position = Vector2( 120, -16 )
+
+[node name="Gargoyles" type="Node2D" parent="EnemySpawner"]
+
+[node name="Gargoyle" parent="EnemySpawner/Gargoyles" instance=ExtResource( 13 )]
+position = Vector2( 224, -72 )
+
+[node name="Gargoyle4" parent="EnemySpawner/Gargoyles" instance=ExtResource( 13 )]
+position = Vector2( 184, -112 )
+
+[node name="Gargoyle2" parent="EnemySpawner/Gargoyles" instance=ExtResource( 13 )]
+position = Vector2( 16, -80 )
+scale = Vector2( -1, 1 )
+dir = 1
+
+[node name="Gargoyle3" parent="EnemySpawner/Gargoyles" instance=ExtResource( 13 )]
+position = Vector2( 88, -96 )
+scale = Vector2( -1, 1 )
+dir = 1
+
+[node name="FallenGargoyles" type="Node2D" parent="EnemySpawner"]
+
+[node name="FallenGargoyles" parent="EnemySpawner/FallenGargoyles" instance=ExtResource( 14 )]
+position = Vector2( 248, -136 )
+
+[node name="FallenGargoyles2" parent="EnemySpawner/FallenGargoyles" instance=ExtResource( 14 )]
+position = Vector2( 8, -136 )
+scale = Vector2( -1, 1 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource( 4 )
@@ -129,19 +286,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Bat5" parent="." instance=ExtResource( 6 )]
-position = Vector2( 176, 72 )
-
-[node name="Bat6" parent="." instance=ExtResource( 6 )]
-position = Vector2( 48, 0 )
-
-[node name="Bat7" parent="." instance=ExtResource( 6 )]
-position = Vector2( 112, 8 )
-
-[node name="Bat8" parent="." instance=ExtResource( 6 )]
-position = Vector2( 120, 32 )
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 script = ExtResource( 9 )
+[connection signal="game_over" from="." to="Camera2D" method="_on_Main_game_over"]
 [connection signal="update_health" from="Player" to="HUD" method="_on_Player_update_health"]
+[connection signal="zero_health" from="Player" to="." method="_on_Player_zero_health"]

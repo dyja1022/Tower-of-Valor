@@ -6,6 +6,8 @@ onready var collider = $CollisionShape2D
 onready var area_collider = $Area2D/CollisionShape2D
 
 func _on_Area2D_body_entered(body):
+	if !body.is_in_group("player"):
+		return
 	if fadeout_timer.time_left > 0:
 		return
 	fadeout_timer.start()
