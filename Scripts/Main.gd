@@ -8,13 +8,14 @@ export (PackedScene) var spear
 	
 
 func _on_Player_zero_health():
-	var all_dead = true
+	players = get_tree().get_nodes_in_group("player")
 	
+	var all_dead = true
 	for p in players:
 		if p.health > 0:
 			all_dead = false
 	
 	if all_dead:
 		is_game_over = true
-	
-	emit_signal("game_over")
+		print("GAME OVER")
+		emit_signal("game_over")

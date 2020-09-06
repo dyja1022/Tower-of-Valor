@@ -1,6 +1,5 @@
 extends "res://Scripts/Enemy.gd"
 
-onready var direction_timer = $SwitchDirectionTimer
 onready var attack_area = $SpearArea
 
 export var health = 3

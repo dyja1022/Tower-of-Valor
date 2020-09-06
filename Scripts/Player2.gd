@@ -23,9 +23,9 @@ var moving_plat_vel = Vector2.ZERO
 
 func get_input():
 	var dir = 0
-	if Input.is_action_pressed("move_right"):
+	if Input.is_action_pressed("move_right_2"):
 		dir += 1
-	if Input.is_action_pressed("move_left"):
+	if Input.is_action_pressed("move_left_2"):
 		dir -= 1
 	if dir != 0:
 		velocity.x = lerp(velocity.x, dir * speed, acceleration)
@@ -35,10 +35,10 @@ func get_input():
 func _physics_process(delta):
 	get_input()
 	velocity.y += gravity * delta
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump_2"):
 		if is_on_floor() || is_on_moving_plat:
 			velocity.y = jump_speed
-	if velocity.y < 0 and Input.is_action_just_released("jump"):
+	if velocity.y < 0 and Input.is_action_just_released("jump_2"):
 		velocity.y = 0
 	
 	velocity = move_and_slide(velocity, Vector2.UP)

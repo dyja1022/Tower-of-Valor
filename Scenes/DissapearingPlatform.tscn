@@ -9,9 +9,10 @@ extents = Vector2( 4.0086, 2.00436 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 3.99311, 0.323608 )
 
-[node name="HalfDissapearing" type="StaticBody2D"]
+[node name="DissapearingPlatform" type="StaticBody2D"]
 position = Vector2( 16, 16 )
 collision_layer = 4
+collision_mask = 9
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
