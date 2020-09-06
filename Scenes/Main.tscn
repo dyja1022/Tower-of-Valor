@@ -288,10 +288,21 @@ script = ExtResource( 4 )
 
 [node name="Lives1" type="Label" parent="HUD"]
 margin_left = 24.0
-margin_top = 16.0
-margin_right = 64.0
-margin_bottom = 30.0
+margin_top = 24.0
+margin_right = 58.0
+margin_bottom = 38.0
 text = "HP: 3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lives2" type="Label" parent="HUD"]
+margin_left = 952.0
+margin_top = 32.0
+margin_right = 986.0
+margin_bottom = 46.0
+text = "HP: 3"
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -302,5 +313,5 @@ script = ExtResource( 9 )
 [connection signal="game_over" from="." to="Camera2D" method="_on_Main_game_over"]
 [connection signal="update_health" from="Player" to="HUD" method="_on_Player_update_health"]
 [connection signal="zero_health" from="Player" to="." method="_on_Player_zero_health"]
-[connection signal="update_health" from="Player2" to="HUD" method="_on_Player_update_health"]
+[connection signal="update_health" from="Player2" to="HUD" method="_on_Player2_update_health"]
 [connection signal="zero_health" from="Player2" to="." method="_on_Player_zero_health"]
